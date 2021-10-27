@@ -13,7 +13,7 @@ A aplicação consiste em:
 
    No Postman
 ---
-    Inserção de pessoas
+    Cadastrar pessoa
     POST -> http://localhost:8080/customers
     
     {
