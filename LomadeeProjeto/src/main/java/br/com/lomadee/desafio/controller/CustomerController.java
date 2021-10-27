@@ -1,6 +1,7 @@
 package br.com.lomadee.desafio.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,7 +17,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.lomadee.desafio.model.Customer;
+import br.com.lomadee.desafio.model.UsuarioLogin;
 import br.com.lomadee.desafio.repository.CustomerRepository;
+import br.com.lomadee.desafio.service.UsuarioService;
 
 
 
@@ -27,6 +30,9 @@ public class CustomerController {
 
 	@Autowired
 	private CustomerRepository repository;
+	
+	@Autowired
+	private UsuarioService usuarioService;
 	
 	
 	@GetMapping
@@ -55,5 +61,25 @@ public class CustomerController {
 	public void delete(@PathVariable long id) {
 		repository.deleteById(id);
 	}
+	
+	@PostMapping("/logar")
+	public ResponseEntity<UsuarioLogin> Autentication(@RequestBody Optional<UsuarioLogin> user) {
+		return usuarioService.logar(user)
+			.map(resp -> ResponseEntity.ok(resp))
+			.orElse(ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
+	}
+
+	@PostMapping("/cadastrar")
+	public ResponseEntity<Customer> Post(@RequestBody Customer customer) {
+
+		Customer usuarioResp = usuarioService.cadastrarUsuario(customer);
+		try {
+			return ResponseEntity.status(HttpStatus.CREATED).body(usuarioResp);
+		} catch (Exception e) {
+			return ResponseEntity.badRequest().build();
+		}
+
+	}
+
 	
 }

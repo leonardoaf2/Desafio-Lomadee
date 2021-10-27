@@ -31,12 +31,22 @@ public class Customer {
 	
 	private String phone;
 	
+	private String senha;
+	
 	@JsonFormat(pattern="dd-MM-yyyy")
 	private LocalDate birthDate;
 	
 	@OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
 	@JsonIgnoreProperties("customer")
 	private List<Address>address;
+	
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
 
 	public long getId() {
 		return id;
