@@ -1,5 +1,4 @@
-package com.desafio.lomadee.controller;
-
+package br.com.lomadee.desafio.controller;
 
 import java.util.List;
 
@@ -16,8 +15,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.desafio.lomadee.model.Address;
-import com.desafio.lomadee.repository.AddressRepository;
+import br.com.lomadee.desafio.model.Address;
+import br.com.lomadee.desafio.repository.AddressRepository;
+
 
 @RestController
 @CrossOrigin(origins = "*", allowedHeaders = "*")
@@ -32,21 +32,11 @@ public class AddressController {
 	public ResponseEntity<List<Address>> getAll(){
 		return ResponseEntity.ok(repository.findAll());
 	}
-
+	
 	@GetMapping("/{id}")
 	public ResponseEntity<Address> getById(@PathVariable long id){
 		return repository.findById(id).map(resp -> ResponseEntity.ok(resp))
 				.orElse(ResponseEntity.notFound().build());
-	}
-	
-	@GetMapping("/zipCode/{zipCode}")
-	public ResponseEntity<List<Address>> getByZipCode(@PathVariable String zipCode){
-		return ResponseEntity.ok(repository.findAllByZipCodeContainingIgnoreCase(zipCode));
-	}
-	
-	@GetMapping("/customer/{customer}")
-	public ResponseEntity<List<Address>> getByCustomer(@PathVariable String customer){
-		return ResponseEntity.ok(repository.findAllByZipCodeContainingIgnoreCase(customer));
 	}
 	
 	@PostMapping

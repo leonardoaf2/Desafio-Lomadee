@@ -1,4 +1,4 @@
-package com.desafio.lomadee.controller;
+package br.com.lomadee.desafio.controller;
 
 import java.util.List;
 
@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.desafio.lomadee.model.Customer;
-import com.desafio.lomadee.repository.CustomerRepository;
+import br.com.lomadee.desafio.model.Customer;
+import br.com.lomadee.desafio.repository.CustomerRepository;
+
+
 
 @Controller
 @RestController
@@ -39,19 +41,14 @@ public class CustomerController {
 				.orElse(ResponseEntity.notFound().build());
 	}
 	
-	@GetMapping("/name/{name}")
-	public ResponseEntity<List<Customer>> GetByTitulo(@PathVariable String name){
-		return ResponseEntity.ok(repository.findAllByNameContainingIgnoreCase(name));
+	@PutMapping
+	public ResponseEntity<Customer> put (@RequestBody Customer customer){
+		return ResponseEntity.status(HttpStatus.OK).body(repository.save(customer));
 	}
 	
 	@PostMapping
 	public ResponseEntity<Customer> post (@RequestBody Customer customer){
 		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(customer));
-	}
-	
-	@PutMapping
-	public ResponseEntity<Customer> put (@RequestBody Customer customer){
-		return ResponseEntity.status(HttpStatus.OK).body(repository.save(customer));
 	}
 	
 	@DeleteMapping("/{id}")

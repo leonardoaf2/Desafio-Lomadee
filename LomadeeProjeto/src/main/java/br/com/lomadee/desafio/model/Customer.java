@@ -1,4 +1,4 @@
-package com.desafio.lomadee.model;
+package br.com.lomadee.desafio.model;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -36,15 +36,7 @@ public class Customer {
 	
 	@OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
 	@JsonIgnoreProperties("customer")
-	private List<Address>Address;
-
-	public List<Address> getAddress() {
-		return Address;
-	}
-
-	public void setAddress(List<Address> address) {
-		Address = address;
-	}
+	private List<Address>address;
 
 	public long getId() {
 		return id;
@@ -94,5 +86,14 @@ public class Customer {
 		this.birthDate = birthDate;
 	}
 
+	public List<Address> getAddress() {
+		return address;
+	}
+
+	public void setAddress(List<Address> address) {
+		this.address = address;
+	}
+
+	
 	
 }
