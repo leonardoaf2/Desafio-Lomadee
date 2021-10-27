@@ -14,8 +14,10 @@ A aplicação consiste em:
    No Postman
    
    Entre em http://localhost:8080/customers/cadastrar | POST
+   ##
    Coloque body depois raw e Json
    faça o casdatro da seguinte maneira
+   ##
 {
     "name": "Anderson",
     "email": "Anderson@email.com",
@@ -28,21 +30,25 @@ A aplicação consiste em:
 ------------Obs: pegue o ID que for gerado--------------------
 
 Logo depois colocar http://localhost:8080/customers/logar | POST
+ ##
     {
 	"email": "Anderson@email.com",
 	"senha": "12345678"
     }
-
+ ##
 Pegar o TOKEN que sera gerado EX : Basic QW5kZXJzb25AZW1haWwuY29tOjEyMzQ1Njc4
+ ##
 Ir em Headers, em KEY colocar: Authorization | em VALUE colocar o TOKEN : Basic QW5kZXJzb25AZW1haWwuY29tOjEyMzQ1Njc4
+ ##
 em POST ainda, aperte SEND
-
+ ##
 ---------- USUARIO CADASTRADO ---------------
 
 postar um address http://localhost:8080/address | POST
+ ##
 EM CUSTOMER COLOCAR O ID DO USUARIO QUE FOI CADASTRADO!
 Coloque body depois raw e Json
-
+ ##
 {
     "zipCode": "88888",
     "street": "rua amerala e verde",
@@ -54,8 +60,9 @@ Coloque body depois raw e Json
     "country": "Brasil",
     "customer": { "id": 3 }
 }
-
+ ##
 ver customers e seus endereços http://localhost:8080/address | GET
+ ##
 Coloque body depois raw e Json
 
     Consultar pessoas
