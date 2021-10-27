@@ -17,7 +17,7 @@ A aplicação consiste em:
     POST -> http://localhost:8080/customers
     
     {
-    "name": "Tabarelli",
+    "name": "Anderson",
     "email": "T83218@email.com",
     "document": "197478282",
     "phone": "1178668558",
