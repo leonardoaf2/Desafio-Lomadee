@@ -8,8 +8,8 @@ A aplicação consiste em:
 - Atualização de endereço através do PUT;
 - Consulta de  pessoas através do GET;
 - Consulta de endreços através do GET;
-- Deletar pessoas através do DELET;
-- Deletar endereços através do DELET;
+- Deletar pessoas através do DELETE;
+- Deletar endereços através do DELETE;
 
    No Postman
 ---
