@@ -15,7 +15,7 @@ A aplicação consiste em:
    
    Entre em http://localhost:8080/customers/cadastrar | POST
    ##
-   Coloque body depois raw e Json
+   Configurações: body, raw e Json
    faça o casdatro da seguinte maneira
    ##
 {
@@ -48,7 +48,7 @@ postar um address http://localhost:8080/address | POST
  ##
 EM CUSTOMER COLOCAR O ID DO USUARIO QUE FOI CADASTRADO!
 ##
-Coloque body depois raw e Json
+Coloque body, raw e Json
  ##
 {
     "zipCode": "88888",
@@ -64,7 +64,7 @@ Coloque body depois raw e Json
  ##
 ver customers e seus endereços http://localhost:8080/address | GET
  ##
-Coloque body depois raw e Json
+Coloque body, raw e Json
 
     Consultar pessoas
     GET -> http://localhost:8080/customers
